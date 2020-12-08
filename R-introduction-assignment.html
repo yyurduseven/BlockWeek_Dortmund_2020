@@ -517,9 +517,9 @@ olympics &lt;- olympics[-which(olympics$Country == &quot;Totals&quot;),]</code><
 <p><span class="math display">\[\frac{Summer~Gold - Winter~Gold}{Total~Gold}\]</span></p>
 <p>Only include countries that have won at least 1 gold in both summer and winter.</p>
 <p><em>Script should return a single string value.</em></p>
-<pre class="r"><code>sub &lt;- subset(olympics, olympics$Gold &gt; 1 &amp; olympics$Gold.1 &gt; 1)
+<pre class="r"><code>sub &lt;- subset(olympics, olympics$Gold &gt;= 1 &amp; olympics$Gold.1 &gt;= 1)
 sub$Country[which.max(abs(sub$Gold - sub$Gold.1)/sub$Gold.2)]</code></pre>
-<pre><code>## [1] &quot;Australia&quot;</code></pre>
+<pre><code>## [1] &quot;Bulgaria&quot;</code></pre>
 </div>
 <div id="question-4" class="section level3">
 <h3>Question 4</h3>
