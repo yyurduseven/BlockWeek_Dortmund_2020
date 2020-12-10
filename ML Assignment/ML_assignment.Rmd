@@ -68,6 +68,7 @@ mostlyNAs <- names(naprops[naprops > 0.9])
 mostlyNACols <- which(naprops > 0.9)
 ```
 
+# Remove some variables as candidate predictors
 ```
 set.seed(1256)
 partial_training <- train_data %>% tbl_df %>% sample_n(size=1000)
@@ -77,6 +78,7 @@ partial_training <- partial_training[,-grep("cvtd_timestamp",names(partial_train
 partial_training <- partial_training[,-nearZeroVar(partial_training)]
 ```
 
+# List of remaining candidate predictors
 ```
 model_vars <- names(partial_training)
 ```
@@ -104,6 +106,7 @@ confusionMatrix(table(pred_test,test_data$classe))
 
 ```
 
+#Prediction Part
 ```
 pred_pml_test <- predict(model_fit, newdata = pml_test, type="class")
 ```
